@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import loginIamge from "../assets/login.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineMail } from "react-icons/ai";
+import { useLoginMutation } from "../features/api/AuthApi";
 import { useDispatch } from "react-redux";
 import { addUser } from "../features/services/AuthSlice";
-import { useLoginMutation } from "../features/api/AuthApi";
 
 const Login = () => {
+  const [login] = useLoginMutation();
   const [email, setEmail] = useState("james2000@gmail.com");
   const [password, setPassword] = useState("password");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [login] = useLoginMutation();
 
   const user = { email, password };
   const loginHandler = async (user) => {
@@ -83,9 +83,8 @@ const Login = () => {
                   <AiOutlineMail />
                 </span>
                 <span>
-                  Need help or suggest anything{" "}
+                  Need help or suggest anything
                   <Link to="/" className="text-[#3c37ff] hover:underline ">
-                    {" "}
                     here
                   </Link>
                 </span>

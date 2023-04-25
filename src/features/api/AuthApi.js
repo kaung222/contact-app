@@ -10,7 +10,7 @@ export const authApi = createApi({
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (user) => ({
-        url: "/register",
+        url: "register",
         method: "POST",
         body: user,
       }),
@@ -18,7 +18,7 @@ export const authApi = createApi({
     }),
     login: builder.mutation({
       query: (user) => ({
-        url: "/login",
+        url: "login",
         method: "POST",
         body: user,
       }),
@@ -26,7 +26,7 @@ export const authApi = createApi({
     }),
     logout: builder.mutation({
       query: (token) => ({
-        url: "/user-logout",
+        url: "user-logout",
         method: "POST",
         headers: { authorization: `Bearer ${token}` },
       }),
