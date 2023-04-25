@@ -15,11 +15,11 @@ const Login = () => {
 
   const user = { email, password };
   const loginHandler = async (user) => {
-    const { data } = await login(user);
+    const data = await login(user);
     console.log(data);
     if (data?.success) {
       dispatch(addUser({ user: data?.user, token: data?.token }));
-      console.log("login successfully!");
+      console.log(data?.message);
       navigate("/");
     }
   };
